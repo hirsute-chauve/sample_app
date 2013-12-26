@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple App du Tutoriel Ruby on Rails | À Propos</title>
+</head>
+<body>
+<h1>À propos de nous</h1>
+<p><a href="http://railstutorial.org/">
+	Le Tutoriel Ruyby on Rails</a> est un projet de livre de screencasts pour apprendre le développement web avec <a href="http://rubyonrails.org/">Ruby on Rails</a>. Ceci est l'<i>Application Exemple</i> du tutoriel.</p>
+</body>
+</html>
