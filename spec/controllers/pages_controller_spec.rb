@@ -7,20 +7,20 @@ describe PagesController do
 		@base_title = "Simple App du Tutoriel Ruby on Rails |"
 	end
 	
-	describe "Visit '/home'" do
+	describe "Get 'home'" do
 		it "returns http success" do
-			visit '/'
+			get 'home'
 			expect(response).to be_success
 		end
 		it "devrait avoir le bon titre" do
-			visit root_path 
-			expect(find('title')).to have_content( @base_title + ' Accueil')
+			visit '/' 
+			expect(find 'title').to have_content( @base_title + ' Accueil')
 		end
 	end
 
-	describe "Visit '/contact'" do
+	describe "Get 'contact'" do
 		it "returns http success" do
-			 visit '/contact'
+			 get 'contact'
 			expect(response).to be_success
 		end
 
@@ -30,9 +30,9 @@ describe PagesController do
 		end
 	end
 
-	describe "Visit '/about'" do
+	describe "Get 'about'" do
 		it "returns http success" do
-			visit '/about'
+			get 'about'
 			expect(response).to be_success
 		end
 
@@ -42,9 +42,9 @@ describe PagesController do
 		end
 	end
 
-	describe "Visit '/help'" do
+	describe "Get 'help'" do
 		it "returns http success" do
-			visit '/help'
+			get 'help'
 			expect(response).to be_success
 		end
 
