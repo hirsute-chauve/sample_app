@@ -1,11 +1,12 @@
 require 'spec_helper'
 
-describe "LayoutLinks" do
-	it "devrait trouver une page Accueil à '/'" do
-		visit '/'
-		expect(find 'title').to have_content "Accueil"
+describe "Pages statiques" do
+	describe "La page d'accueil" do
+		it "contient l'expression 'Accueil'" do
+			visit '/'
+			expect(page).to have_content "Accueil"
+		end
 	end
-
 	it "devrait trouver une page Contact à '/contact'" do
 		visit '/contact'
 		expect(find 'title').to have_content "Contact"
