@@ -36,6 +36,7 @@ group :development, :test do
 	gem "rspec-rails", "~> 2.14.0"
 	gem "factory_girl_rails", "~> 4.2.1"
 	gem "sqlite3", "~> 1.3.8"
+	gem "guard-rspec", "~> 2.5.0"
 end
 
 group :test do
@@ -44,6 +45,10 @@ group :test do
 	gem "database_cleaner", "~> 1.0.1"
 	gem "launchy", "~> 2.3.0"
 	gem "selenium-webdriver", "~> 2.35.1"
+	gem "libnotify", "~> 0.8.0"
+	gem "spork-rails", "~>4.0.0"
+	gem "guard-spork", "~>1.5.0"
+	gem "childprocess", "~>0.3.6"
 end
 
 group :production do
