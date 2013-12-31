@@ -1,3 +1,7 @@
-<h1>Simple App</h1>
-<p>Ceci est la page d'accueil de l'<i>Application Exemple</i> du <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>.</p>
-<%= link_to "S'inscrire !", signup_path, :class => "signup_button round" %>
+<% provide(:title, "Accueil") %>
+<div class="center hero-unit">
+	<h1>Bienvenue sur l'Application Exemple</h1>
+	<h2>Ceci est la page d'accueil de l'<i>Application Exemple</i> du <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>.</h2>
+	<%= link_to "S'inscrire !", signup_path, :class => "btn btn-large btn-primary" %>
+</div>
+<%= linkt_to image_tag("rails.png", alt: "Rails"), "http://rubyonrails.org/" %>
