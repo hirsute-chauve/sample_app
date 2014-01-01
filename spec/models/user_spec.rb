@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 	before { @user = User.new(name: "Utilisateur Exemple", email: "utilisateur@exemple.com",
-													 password: "foobar", password_confirmation: "foobar") }
+														password: "foobar", password_confirmation: "foobar") }
 	subject { @user }
 
 	it { should respond_to :name }
@@ -31,7 +31,7 @@ describe User do
 
 	describe "quand le format d'email est invalide" do
 		it "doit être invalide" do
-			addresses = %w[user@foo,com user_at_foo.org example.user@foo. foo@bar_baz.com foo@bar+baz.com]
+			addresses = %w[user@foo,com user_at_foo.org example.user@foo. foo@bar_baz.com foo@bar+baz.com foo@bar..com]
 			addresses.each do |invalid_address|
 				@user.email = invalid_address
 				expect(@user).not_to be_valid
@@ -90,5 +90,16 @@ describe User do
 	describe "un mot de passe trop court" do
 		before { @user.password = @user.password_confirmation = "a" * 5 }
 		it {should be_invalid }
+	end
+
+	describe "une adresse email en capitale" do
+		let(:uppercase_address) { "ADDRESS@UPPERCASE.COM" } 
+		before do
+			@user.email = uppercase_address 
+			@user.save
+		end
+		it "est enregistrée en minuscules" do
+			expect(@user.reload.email).to eq uppercase_address.downcase
+		end
 	end
 end
