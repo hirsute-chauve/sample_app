@@ -32,6 +32,12 @@ describe "Pages User" do
 			it "ne créent pas de nouvel utilisateur" do
 				expect { click_button submit }.not_to change(User, :count)
 			end
+
+			describe "après envoi du formulaire" do
+				before { click_button submit }
+				it { should have_title "Inscription" }
+				it { should have_content "error" }
+			end
 		end
 
 		describe "Des informations valides" do
@@ -45,6 +51,14 @@ describe "Pages User" do
 
 			it "créent un nouvel utilisateur" do
 				expect { click_button submit }.to change(User, :count)
+			end
+
+			describe "après avoir sauvegardé un utilisateur" do
+				before { click_button submit }
+				let(:found_user) { User.find_by(email: user.email) }
+
+				it { should have_title(found_user.name) }
+				it { should have_selector('div.alert.alert-success', text: 'Bienvenue') }
 			end
 		end
 	end
