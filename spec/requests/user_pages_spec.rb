@@ -57,9 +57,11 @@ describe "Pages User" do
 				before { click_button submit }
 				let(:found_user) { User.find_by(email: user.email) }
 
+				it { should have_link("Déconnexion") }
 				it { should have_title(found_user.name) }
 				it { should have_selector('div.alert.alert-success', text: 'Bienvenue') }
 			end
+
 		end
 	end
 end
